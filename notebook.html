@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notebook — Utkarsh Giri</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+  <style>
+    .nb-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .nb-header {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nb-header h1 {
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .nb-header-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .nb-header p {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+    .nb-back {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .nb-back:hover { color: var(--accent); }
+
+    /* ─── CELLS ─── */
+    .nb-cell {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    /* Markdown cell */
+    .nb-md {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.85;
+      padding: 0.25rem 0 0.25rem 1rem;
+      border-left: 2px solid transparent;
+    }
+    .nb-md h1 {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.5rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .nb-md h2 {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.4rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nb-md h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1rem 0 0.4rem;
+      color: var(--text);
+    }
+    .nb-md h4, .nb-md h5, .nb-md h6 {
+      font-family: var(--display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 1.25rem 0 0.4rem;
+      color: var(--text);
+    }
+    .nb-md p { margin-bottom: 0.75rem; }
+    .nb-md a { color: var(--accent); text-decoration: underline; }
+    .nb-md strong { color: var(--text); font-weight: 600; }
+    .nb-md em { font-style: italic; }
+    .nb-md ul, .nb-md ol {
+      margin: 0.5rem 0 0.75rem 1.25rem;
+      color: var(--text-2);
+    }
+    .nb-md li { margin-bottom: 0.3rem; line-height: 1.7; }
+    .nb-md blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0.5rem 1rem;
+      margin: 0.75rem 0;
+      color: var(--text-2);
+      font-style: italic;
+      background: rgba(255,255,255,0.02);
+      border-radius: 0 var(--r) var(--r) 0;
+    }
+    .nb-md img {
+      max-width: 100%;
+      border-radius: var(--r);
+      margin: 0.75rem 0;
+    }
+    .nb-md code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.15em 0.4em;
+      color: var(--accent-2);
+    }
+    .nb-md pre {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 0.75rem 0;
+    }
+    .nb-md pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+    .nb-md table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0;
+      font-family: var(--body);
+      font-size: 0.88rem;
+    }
+    .nb-md th, .nb-md td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+    .nb-md th {
+      background: var(--bg-3);
+      font-weight: 500;
+      color: var(--text);
+    }
+    .nb-md td { color: var(--text-2); }
+    .nb-md hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+
+    /* Code cell */
+    .nb-code-cell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .nb-code-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.75rem;
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--border);
+    }
+    .nb-cell-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      letter-spacing: 0.06em;
+    }
+    .nb-cell-lang {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--text-3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .nb-code-src {
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 0;
+    }
+    .nb-code-src pre {
+      margin: 0;
+      background: transparent;
+    }
+    .nb-code-src code {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      tab-size: 4;
+    }
+
+    /* Outputs */
+    .nb-output {
+      border-top: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      background: var(--bg-2);
+    }
+    .nb-output-bar {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--text-3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .nb-out-text {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-2);
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+    .nb-out-html {
+      font-size: 0.88rem;
+      color: var(--text);
+      overflow-x: auto;
+    }
+    .nb-out-html table {
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      margin: 0.25rem 0;
+    }
+    .nb-out-html th, .nb-out-html td {
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.6rem;
+      text-align: left;
+    }
+    .nb-out-html th { background: var(--bg-3); color: var(--text); font-weight: 500; }
+    .nb-out-html td { color: var(--text-2); }
+    .nb-out-img {
+      max-width: 100%;
+      border-radius: var(--r);
+      margin: 0.25rem 0;
+      background: #fff;
+      padding: 4px;
+    }
+    .nb-out-error {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--coral);
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+      background: var(--coral-dim);
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--r);
+    }
+
+    /* Raw cell */
+    .nb-raw {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text-3);
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1rem;
+      white-space: pre-wrap;
+    }
+
+    .nb-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-3);
+      font-size: 0.95rem;
+    }
+
+    /* Table of contents */
+    .nb-toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .nb-toc-title {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.75rem;
+    }
+    .nb-toc a {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-2);
+      text-decoration: none;
+      padding: 0.2rem 0;
+      transition: color 0.15s;
+    }
+    .nb-toc a:hover { color: var(--accent); }
+    .nb-toc a.toc-h2 { padding-left: 0; }
+    .nb-toc a.toc-h3 { padding-left: 1rem; font-size: 0.84rem; }
+    .nb-toc a.toc-h4 { padding-left: 2rem; font-size: 0.8rem; color: var(--text-3); }
+
+    .nb-info-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    .nb-info-item {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+    }
+    .nb-info-item span { color: var(--text-2); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-left"><div class="nav-dot"></div><div class="nav-name">Utkarsh Giri</div></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <div class="nb-wrap" id="nb-wrap">
+    <div class="nb-empty" id="nb-empty">Loading notebook…</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2025 Utkarsh Giri</span>
+      <span>ugiri@caltech.edu</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+  <script>
+
+  // ─── Markdown config ───
+  marked.setOptions({
+    gfm: true,
+    breaks: false,
+    smartypants: false,
+    highlight: function(code, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        return hljs.highlight(code, { language: lang }).value;
+      }
+      return hljs.highlightAuto(code).value;
+    }
+  });
+
+  // ─── Helpers ───
+  function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function joinSource(source) {
+    return Array.isArray(source) ? source.join('') : (source || '');
+  }
+
+  function stripAnsi(s) {
+    return s.replace(/\x1b\[[0-9;]*m/g, '');
+  }
+
+  // ─── Render a single output ───
+  function renderOutput(output) {
+    const type = output.output_type;
+
+    if (type === 'stream') {
+      const text = joinSource(output.text);
+      return `<div class="nb-out-text">${esc(text)}</div>`;
+    }
+
+    if (type === 'error') {
+      const tb = (output.traceback || []).map(l => stripAnsi(l)).join('\n');
+      return `<div class="nb-out-error">${esc(tb)}</div>`;
+    }
+
+    if (type === 'execute_result' || type === 'display_data') {
+      const data = output.data || {};
+      let html = '';
+
+      // Prefer HTML rendering (e.g. pandas DataFrames)
+      if (data['text/html']) {
+        const raw = joinSource(data['text/html']);
+        html += `<div class="nb-out-html">${raw}</div>`;
+      }
+      // Images
+      else if (data['image/png']) {
+        const b64 = joinSource(data['image/png']).replace(/\n/g, '');
+        html += `<img class="nb-out-img" src="data:image/png;base64,${b64}" alt="Output" />`;
+      }
+      else if (data['image/jpeg']) {
+        const b64 = joinSource(data['image/jpeg']).replace(/\n/g, '');
+        html += `<img class="nb-out-img" src="data:image/jpeg;base64,${b64}" alt="Output" />`;
+      }
+      else if (data['image/svg+xml']) {
+        const svg = joinSource(data['image/svg+xml']);
+        html += `<div class="nb-out-html">${svg}</div>`;
+      }
+      // LaTeX
+      else if (data['text/latex']) {
+        const latex = joinSource(data['text/latex']);
+        html += `<div class="nb-out-text">${esc(latex)}</div>`;
+      }
+      // Fallback: plain text
+      else if (data['text/plain']) {
+        const text = joinSource(data['text/plain']);
+        html += `<div class="nb-out-text">${esc(text)}</div>`;
+      }
+
+      return html;
+    }
+
+    return '';
+  }
+
+  // ─── Build Table of Contents from markdown headings ───
+  function buildTOC(cells) {
+    const headings = [];
+    let counter = 0;
+    cells.forEach(cell => {
+      if (cell.cell_type !== 'markdown') return;
+      const src = joinSource(cell.source);
+      const lines = src.split('\n');
+      for (const line of lines) {
+        const m = line.match(/^(#{1,4})\s+(.+)/);
+        if (m) {
+          const level = m[1].length;
+          const text = m[2].replace(/[*_`#]/g, '').trim();
+          const id = 'heading-' + (counter++);
+          headings.push({ level, text, id });
+        }
+      }
+    });
+    return headings;
+  }
+
+  // ─── Render notebook ───
+  function renderNotebook(project) {
+    const wrap = document.getElementById('nb-wrap');
+
+    if (!project || !project.fileContent) {
+      wrap.innerHTML = '<div class="nb-empty">No notebook found for this project.</div>';
+      return;
+    }
+
+    let nb;
+    const isNotebook = project.fileType === '.ipynb';
+
+    if (!isNotebook) {
+      // .py file — just syntax-highlight it
+      const highlighted = hljs.highlight(project.fileContent, { language: 'python' }).value;
+      wrap.innerHTML = `
+        <a href="projects.html" class="nb-back">← Back to projects</a>
+        <div class="nb-header">
+          <h1>${esc(project.title)}</h1>
+          <div class="nb-header-meta">
+            <span class="project-tag ${tagCls(project.tag)}">${esc(project.tag || 'Project')}</span>
+            <span class="file-badge" style="position:static">.py</span>
+          </div>
+          <p>${esc(project.description)}</p>
+          <div class="nb-info-grid">
+            <div class="nb-info-item">File: <span>${esc(project.fileName)}</span></div>
+          </div>
+        </div>
+        <div class="nb-code-cell">
+          <div class="nb-code-bar">
+            <span class="nb-cell-num">${esc(project.fileName)}</span>
+            <span class="nb-cell-lang">python</span>
+          </div>
+          <div class="nb-code-src"><pre><code class="language-python">${highlighted}</code></pre></div>
+        </div>`;
+      return;
+    }
+
+    try {
+      nb = JSON.parse(project.fileContent);
+    } catch(e) {
+      wrap.innerHTML = '<div class="nb-empty">Could not parse notebook JSON.</div>';
+      return;
+    }
+
+    const cells = nb.cells || [];
+    const lang = nb.metadata?.kernelspec?.language || nb.metadata?.language_info?.name || 'python';
+    const kernelName = nb.metadata?.kernelspec?.display_name || 'Python';
+    const nbFormat = nb.nbformat || '?';
+
+    // Build TOC
+    const headings = buildTOC(cells);
+    let headingCounter = 0;
+
+    // Count cells
+    const codeCells = cells.filter(c => c.cell_type === 'code').length;
+    const mdCells = cells.filter(c => c.cell_type === 'markdown').length;
+
+    let html = `<a href="projects.html" class="nb-back">← Back to projects</a>`;
+    html += `<div class="nb-header">`;
+    html += `<h1>${esc(project.title)}</h1>`;
+    html += `<div class="nb-header-meta">`;
+    html += `<span class="project-tag ${tagCls(project.tag)}">${esc(project.tag || 'Project')}</span>`;
+    html += `<span class="file-badge" style="position:static">.ipynb</span>`;
+    if (project.status) html += `<span class="status-badge ${statusCls(project.status)}">${esc(project.status)}</span>`;
+    html += `</div>`;
+    html += `<p>${esc(project.description)}</p>`;
+    if (project.highlight) html += `<div class="project-highlight" style="margin-top:0.5rem">${esc(project.highlight)}</div>`;
+    html += `<div class="nb-info-grid">`;
+    html += `<div class="nb-info-item">Kernel: <span>${esc(kernelName)}</span></div>`;
+    html += `<div class="nb-info-item">Cells: <span>${codeCells} code, ${mdCells} markdown</span></div>`;
+    html += `<div class="nb-info-item">Format: <span>nbformat ${nbFormat}</span></div>`;
+    if (project.tech) html += `<div class="nb-info-item">Stack: <span>${esc(project.tech)}</span></div>`;
+    html += `</div>`;
+    if (project.github || project.demo) {
+      html += `<div class="project-links" style="margin-top:0.75rem">`;
+      if (project.github) html += `<a href="${esc(project.github)}" target="_blank">GitHub ↗</a>`;
+      if (project.demo) html += `<a href="${esc(project.demo)}" target="_blank">Demo ↗</a>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+
+    // TOC
+    if (headings.length > 2) {
+      html += `<div class="nb-toc"><div class="nb-toc-title">Contents</div>`;
+      headings.forEach(h => {
+        html += `<a href="#${h.id}" class="toc-h${h.level}">${esc(h.text)}</a>`;
+      });
+      html += `</div>`;
+    }
+
+    // Cells
+    let execCount = 0;
+    cells.forEach((cell, i) => {
+      const src = joinSource(cell.source);
+      if (!src.trim() && cell.cell_type !== 'code') return;
+
+      html += `<div class="nb-cell">`;
+
+      if (cell.cell_type === 'markdown') {
+        // Inject IDs into headings for TOC links
+        let rendered = marked.parse(src);
+        rendered = rendered.replace(/<h([1-4])>/g, () => {
+          const h = headings[headingCounter];
+          if (h) {
+            headingCounter++;
+            return `<h${h.level} id="${h.id}">`;
+          }
+          return `<h1>`;
+        });
+        html += `<div class="nb-md">${rendered}</div>`;
+      }
+
+      else if (cell.cell_type === 'code') {
+        execCount++;
+        const num = cell.execution_count || execCount;
+        let highlighted;
+        try {
+          highlighted = hljs.highlight(src, { language: lang }).value;
+        } catch(e) {
+          highlighted = esc(src);
+        }
+
+        html += `<div class="nb-code-cell">`;
+        html += `<div class="nb-code-bar">`;
+        html += `<span class="nb-cell-num">In [${num}]</span>`;
+        html += `<span class="nb-cell-lang">${esc(lang)}</span>`;
+        html += `</div>`;
+        html += `<div class="nb-code-src"><pre><code class="language-${esc(lang)}">${highlighted}</code></pre></div>`;
+
+        // Outputs
+        const outputs = cell.outputs || [];
+        if (outputs.length > 0) {
+          html += `<div class="nb-output">`;
+          html += `<div class="nb-output-bar">Output</div>`;
+          outputs.forEach(out => { html += renderOutput(out); });
+          html += `</div>`;
+        }
+
+        html += `</div>`;
+      }
+
+      else if (cell.cell_type === 'raw') {
+        html += `<div class="nb-raw">${esc(src)}</div>`;
+      }
+
+      html += `</div>`;
+    });
+
+    wrap.innerHTML = html;
+  }
+
+  // ─── Load project from URL param ───
+  const params = new URLSearchParams(window.location.search);
+  const projectId = params.get('id');
+  if (projectId) {
+    const project = getProjects().find(p => p.id === projectId);
+    if (project) {
+      document.title = project.title + ' — Utkarsh Giri';
+      renderNotebook(project);
+    } else {
+      document.getElementById('nb-wrap').innerHTML =
+        '<div class="nb-empty">Project not found. <a href="projects.html">Back to projects →</a></div>';
+    }
+  } else {
+    document.getElementById('nb-wrap').innerHTML =
+      '<div class="nb-empty">No project specified. <a href="projects.html">Back to projects →</a></div>';
+  }
+
+  </script>
+</body>
+</html>

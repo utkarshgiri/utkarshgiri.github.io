@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Utkarsh Giri</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-left"><div class="nav-dot"></div><div class="nav-name">Utkarsh Giri</div></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="section-label">Get in touch</div>
+      <h1 class="page-title">Contact</h1>
+      <p class="page-subtitle">Feel free to reach out about research, collaborations, or just to say hello.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container contact-grid">
+
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:ugiri@caltech.edu">ugiri@caltech.edu</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Current Position</div>
+          <div class="contact-val">Postdoctoral Fellow, Caltech</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Location</div>
+          <div class="contact-val">Pasadena, CA</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-val"><a href="https://github.com/utkarshgiri" target="_blank">github.com/utkarshgiri ↗</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Google Scholar</div>
+          <div class="contact-val"><a href="https://scholar.google.com/citations?user=B7NCqI8AAAAJ&hl=en" target="_blank">Scholar profile ↗</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val"><a href="https://linkedin.com/" target="_blank">linkedin.com/in/utkarshgiri ↗</a></div>
+        </div>
+        <div class="contact-aside">
+          I try to respond to everything, though it might take a few days.
+        </div>
+      </div>
+
+      <div>
+        <form class="form-body" id="contact-form" autocomplete="off" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;">
+          <div class="fg">
+            <label for="c-name">Your name *</label>
+            <input type="text" id="c-name" required placeholder="Jane Smith" />
+          </div>
+          <div class="fg">
+            <label for="c-email">Email *</label>
+            <input type="email" id="c-email" required placeholder="jane@company.com" />
+          </div>
+          <div class="fg">
+            <label for="c-subject">Subject</label>
+            <select id="c-subject">
+              <option>Research collaboration</option>
+              <option>Question about a paper</option>
+              <option>Question about a project</option>
+              <option>General</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="c-msg">Message *</label>
+            <textarea id="c-msg" rows="6" required placeholder="Hi Utkarsh, …"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+          <div class="form-note" id="c-note" hidden></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2025 Utkarsh Giri</span>
+      <span>ugiri@caltech.edu</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const n = document.getElementById('c-note');
+      n.hidden = false;
+      n.textContent = 'Thanks for reaching out! This is a template form — wire it to Formspree or EmailJS to receive messages. See the README.';
+    });
+  </script>
+</body>
+</html>

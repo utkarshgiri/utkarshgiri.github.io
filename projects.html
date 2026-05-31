@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Utkarsh Giri</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-left"><div class="nav-dot"></div><div class="nav-name">Utkarsh Giri</div></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="section-label">Side projects</div>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-subtitle">Things I've been experimenting with — mostly data analysis projects I work on in my spare time.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- ADD PROJECT -->
+      <div class="panel edit-only" id="add-panel">
+        <div class="panel-header">
+          <h2>Add a project</h2>
+          <button class="panel-toggle" id="toggle-form">Collapse ↑</button>
+        </div>
+        <form class="form-body" id="project-form" autocomplete="off">
+          <div class="form-row">
+            <div class="fg">
+              <label for="p-title">Project title *</label>
+              <input type="text" id="p-title" placeholder="e.g. Chest X-Ray Classifier" required />
+            </div>
+            <div class="fg" style="max-width:200px">
+              <label for="p-tag">Category *</label>
+              <select id="p-tag" required>
+                <option value="">Select…</option>
+                <option>Computer Vision</option>
+                <option>NLP / LLMs</option>
+                <option>Data Science</option>
+                <option>Bayesian / Statistical</option>
+                <option>Foundation Models</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="p-desc">Description *</label>
+            <textarea id="p-desc" rows="3" placeholder="What does it do? What's interesting about it?" required></textarea>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="p-tech">Technologies</label>
+              <input type="text" id="p-tech" placeholder="e.g. PyTorch, HuggingFace, OpenCV" />
+            </div>
+            <div class="fg" style="max-width:170px">
+              <label for="p-status">Status</label>
+              <select id="p-status">
+                <option>Complete</option>
+                <option>In Progress</option>
+                <option>Archived</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="p-github">GitHub URL</label>
+              <input type="url" id="p-github" placeholder="https://github.com/…" />
+            </div>
+            <div class="fg">
+              <label for="p-demo">Demo / Colab URL</label>
+              <input type="url" id="p-demo" placeholder="https://…" />
+            </div>
+          </div>
+          <div class="drop-zone" id="drop-zone">
+            <div class="drop-zone-icon">↑</div>
+            <div class="drop-zone-text">
+              Drop your <strong>.ipynb</strong> or <strong>.py</strong> file here
+              <br /><span>or <label for="file-input" class="file-label">browse</label></span>
+            </div>
+            <input type="file" id="file-input" accept=".ipynb,.py" hidden />
+            <div class="drop-zone-hint">Jupyter notebooks &amp; Python scripts · max 10 MB</div>
+            <div class="drop-zone-picked" id="file-picked" hidden></div>
+          </div>
+          <div class="fg">
+            <label for="p-highlight">Key result / headline metric</label>
+            <input type="text" id="p-highlight" placeholder="e.g. 94.2% accuracy · 3× faster than baseline" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add project</button>
+            <button type="button" class="btn btn-ghost" id="clear-btn">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="filters">
+        <button class="fbtn on" data-f="all">All</button>
+        <button class="fbtn" data-f="Computer Vision">Vision</button>
+        <button class="fbtn" data-f="NLP / LLMs">NLP</button>
+        <button class="fbtn" data-f="Data Science">Data Science</button>
+        <button class="fbtn" data-f="Bayesian / Statistical">Bayesian</button>
+        <button class="fbtn" data-f="Foundation Models">Foundation</button>
+      </div>
+
+      <div class="project-grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>Projects coming soon.</div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal-bg" id="modal-bg" hidden>
+    <div class="modal" id="modal">
+      <button class="modal-x" id="modal-x">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2025 Utkarsh Giri</span>
+      <span>ugiri@caltech.edu</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>
