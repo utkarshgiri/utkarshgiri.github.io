@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "fastbk",
+    "title": "fastBK",
+    "category": "Scientific computing",
+    "summary": "MPI-parallel bispectrum computation. Independently validated by two subsequent groups.",
+    "tags": [
+      "MPI",
+      "Bispectrum",
+      "Cosmology"
+    ],
+    "mark": "B(k₁, k₂, k₃)",
+    "tone": "blue",
+    "url": "https://github.com/utkarshgiri/fastBK"
+  },
+  {
+    "slug": "jaims",
+    "title": "jaims",
+    "category": "Bayesian inference",
+    "summary": "A JAX-based affine-invariant MCMC sampler for Bayesian inference.",
+    "tags": [
+      "JAX",
+      "MCMC",
+      "Statistics"
+    ],
+    "mark": "p(θ | D)",
+    "tone": "ink",
+    "url": "https://github.com/utkarshgiri/jaims"
+  },
+  {
+    "slug": "zinc",
+    "title": "zinc",
+    "category": "Scientific computing",
+    "summary": "A Dockerized Zel’dovich & 2LPT initial condition generator for N-body simulations.",
+    "tags": [
+      "Docker",
+      "2LPT",
+      "N-body"
+    ],
+    "mark": "x(q, t)",
+    "tone": "ice",
+    "url": "https://github.com/utkarshgiri/zinc"
+  },
+  {
+    "slug": "remotenb-tunnelboard",
+    "title": "remotenb & tunnelboard",
+    "category": "Developer tools",
+    "summary": "Remote tunneling tools for Jupyter notebooks and TensorBoard.",
+    "tags": [
+      "Jupyter",
+      "TensorBoard",
+      "Remote tools"
+    ],
+    "mark": "localhost_",
+    "tone": "slate",
+    "url": "https://github.com/utkarshgiri/remotenb",
+    "extraUrl": "https://github.com/utkarshgiri/tunnelboard"
+  }
+]

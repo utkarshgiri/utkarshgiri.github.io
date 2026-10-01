@@ -1,0 +1,20 @@
+{
+  "name": "Utkarsh Giri",
+  "url": "https://utkarshgiri.github.io",
+  "email": "ugiri@caltech.edu",
+  "role": "Postdoctoral Fellow",
+  "institution": "California Institute of Technology",
+  "location": "Pasadena, California",
+  "github": "https://github.com/utkarshgiri",
+  "scholar": "https://scholar.google.com/citations?user=B7NCqI8AAAAJ&hl=en",
+  "linkedin": "https://www.linkedin.com/in/utkarshgiri/",
+  "bio": "I'm a postdoctoral fellow at Caltech, working on cosmological surveys and statistical methods for extracting signals from large-scale astrophysical datasets. On the side, I like tinkering with machine learning.",
+  "experience": [
+    {"date": "Jun 2024 — Present", "institution": "California Institute of Technology", "role": "Postdoctoral Fellow", "details": ["Working on data analysis and inference pipelines for the SPHEREx satellite mission.", "Developing methods to extract cosmological signals from noisy, high-dimensional survey data."]},
+    {"date": "Sep 2021 — Jun 2024", "institution": "University of Wisconsin–Madison", "role": "Research Associate", "details": ["Developed a neural network-enhanced estimator for primordial non-Gaussianity.", "Built simulation-to-inference pipelines using N-body simulations and halo-model analytics.", "Contributed to Bayesian analysis of fast radio burst signals as part of the CHIME/FRB Collaboration."]}
+  ],
+  "education": [
+    {"date": "2016 — 2021", "institution": "Perimeter Institute & University of Waterloo", "role": "Ph.D. in Physics", "details": ["Thesis: Reconstructing Cosmic Velocities with the Kinetic Sunyaev-Zeldovich Effect", "Advisor: Kendrick M. Smith"]},
+    {"date": "2010 — 2015", "institution": "Indian Institute of Science Education and Research, Pune", "role": "BS-MS Dual Degree", "details": ["Thesis: Lepton Flavour Violation in Supersymmetry", "Advisors: Rohini Godbole and Sudhir Vempati"]}
+  ]
+}
