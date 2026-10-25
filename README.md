@@ -1,6 +1,6 @@
 # Utkarsh Giri — portfolio & project journal
 
-A minimal academic website for a postdoctoral cosmologist, built for GitHub Pages. The design uses a compact portrait, restrained typography, and straightforward research and publication pages. The site is static, fast, and self-contained. All styling, scripts, the portrait, and the Markdown parser are included locally. There are no third-party font, JavaScript, analytics, or backend services to configure.
+A minimal academic website for a postdoctoral cosmologist, built for GitHub Pages. The design uses a compact portrait, restrained typography, and straightforward research and publication pages. The site is static, fast, and self-contained. All styling, scripts, the body webfont (Newsreader, self-hosted under the SIL Open Font License in `assets/fonts/`), the portrait, and the Markdown parser are included locally. There are no third-party font, JavaScript, analytics, or backend services to configure.
 
 ## Start here
 

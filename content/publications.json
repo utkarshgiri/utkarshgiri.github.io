@@ -6,7 +6,8 @@
     "venue": "arXiv:2609.05607",
     "type": "Preprint",
     "url": "https://arxiv.org/abs/2609.05607v1",
-    "category": "Cosmology"
+    "category": "Cosmology",
+    "selected": true
   },
   {
     "year": "2026",
@@ -24,7 +25,8 @@
     "venue": "Phys. Rev. D 112 (2025), 123544",
     "type": "Journal",
     "url": "https://arxiv.org/abs/2305.03070",
-    "category": "Cosmology"
+    "category": "Cosmology",
+    "selected": true
   },
   {
     "year": "2025",
@@ -42,7 +44,8 @@
     "venue": "Phys. Rev. D 107, L061301",
     "type": "Journal",
     "url": "https://arxiv.org/abs/2205.12964",
-    "category": "Machine learning"
+    "category": "Machine learning",
+    "selected": true
   },
   {
     "year": "2022",
@@ -51,7 +54,8 @@
     "venue": "JCAP 09 (2022) 028",
     "type": "Journal",
     "url": "https://arxiv.org/abs/2010.07193",
-    "category": "Cosmology"
+    "category": "Cosmology",
+    "selected": true
   },
   {
     "year": "2021",
@@ -60,7 +64,8 @@
     "venue": "NeurIPS 2021",
     "type": "NeurIPS",
     "url": "https://arxiv.org/abs/2105.12024",
-    "category": "Machine learning"
+    "category": "Machine learning",
+    "selected": true
   },
   {
     "year": "2022",
@@ -98,7 +103,8 @@
     "venue": "arXiv:2310.16932, in press",
     "type": "Preprint",
     "url": "https://arxiv.org/abs/2310.16932",
-    "category": "Fast radio bursts"
+    "category": "Fast radio bursts",
+    "selected": true
   },
   {
     "year": "2018",
